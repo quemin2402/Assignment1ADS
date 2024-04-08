@@ -9,6 +9,7 @@ public class Task6 {
         System.out.println("Enter a power for the number: ");
         int n = sc.nextInt();
         System.out.println(a + " to the power " + n + " is " + calculationsPower(a, n));
+        System.out.println("Time complexity: O(n)");
     }
 
     private static Integer calculationsPower(int a, int n) {

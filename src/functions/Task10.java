@@ -11,9 +11,10 @@ public class Task10 {
 
         int gcd = gcdRecursive(a, b);
         System.out.println("The GCD of " + a + " and " + b + " is: " + gcd);
+        System.out.println("Time complexity: O(log n)");
     }
 
-    private static Integer gcdRecursive(int a, int b) {
+    private static int gcdRecursive(int a, int b) {
         if (b == 0)
             return a;
         return gcdRecursive(b, a % b);

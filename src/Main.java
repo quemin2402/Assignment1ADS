@@ -1,15 +1,7 @@
-import java.util.Scanner;
+import functions.*;
+import helpers.Task;
 
-import static functions.Task1.findMinimum;
-import static functions.Task2.calculateAverage;
-import static functions.Task3.checkPrime;
-import static functions.Task4.calculateFactorial;
-import static functions.Task5.fibonacciSequence;
-import static functions.Task6.calculatePower;
-import static functions.Task7.reverseArray;
-import static functions.Task8.checkDigitsInString;
-import static functions.Task9.calculateBinomialCoefficient;
-import static functions.Task10.findGCD;
+import java.util.Scanner;
 
 public class Main {
     public static Scanner sc = new Scanner(System.in);
@@ -22,19 +14,33 @@ public class Main {
                     "8. Check Digits in String\n9. Calculate Binomial Coefficient\n10. Find GCD\n");
 
             int choiceOfTheUser = sc.nextInt();
+
+            Task taskToExecute;
             switch (choiceOfTheUser) {
-                case 1 -> findMinimum(sc);
-                case 2 -> calculateAverage(sc);
-                case 3 -> checkPrime(sc);
-                case 4 -> calculateFactorial(sc);
-                case 5 -> fibonacciSequence(sc);
-                case 6 -> calculatePower(sc);
-                case 7 -> reverseArray(sc);
-                case 8 -> checkDigitsInString(sc);
-                case 9 -> calculateBinomialCoefficient(sc);
-                case 10 -> findGCD(sc);
-                default -> { return; }
+                case 1 -> taskToExecute = Task1::findMinimum;
+                case 2 -> taskToExecute = Task2::calculateAverage;
+                case 3 -> taskToExecute = Task3::checkPrime;
+                case 4 -> taskToExecute = Task4::calculateFactorial;
+                case 5 -> taskToExecute = Task5::fibonacciSequence;
+                case 6 -> taskToExecute = Task6::calculatePower;
+                case 7 -> taskToExecute = Task7::reverseArray;
+                case 8 -> taskToExecute = Task8::checkDigitsInString;
+                case 9 -> taskToExecute = Task9::calculateBinomialCoefficient;
+                case 10 -> taskToExecute = Task10::findGCD;
+                default -> {
+                    System.out.println("Invalid option. Exiting...");
+                    return;
+                }
             }
+            measureAndExecuteTask(taskToExecute);
         }
+    }
+
+    private static void measureAndExecuteTask(Task task) {
+        long startTime = System.nanoTime();
+        task.execute(sc);
+        long endTime = System.nanoTime();
+        double duration = (endTime - startTime) / 1e9;
+        System.out.println("Task runtime: " + duration + " seconds");
     }
 }

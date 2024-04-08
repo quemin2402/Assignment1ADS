@@ -8,12 +8,13 @@ public class Task2 {
         int n = sc.nextInt();
         int[] array = new int[n];
         System.out.println("Enter the elements:");
-        float sumOfElements = 0;
+        double sumOfElements = 0;
         for (int i = 0; i < n; i++) {
             array[i] = sc.nextInt();
             sumOfElements += array[i];
         }
 
         System.out.println("Average: " + sumOfElements / n);
+        System.out.println("Time complexity: O(n)");
     }
 }

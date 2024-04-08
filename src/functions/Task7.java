@@ -9,6 +9,7 @@ public class Task7 {
         System.out.println("Enter the elements:");
         reversingArray(sc, n);
         System.out.println();
+        System.out.println("Time complexity: O(n)");
     }
     private static void reversingArray(Scanner sc, int n) {
         if (n == 0)

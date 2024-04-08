@@ -6,14 +6,25 @@ public class Task3 {
     public static void checkPrime(Scanner sc) {
         System.out.println("Enter a number: ");
         int n = sc.nextInt();
-        if (n < 2)
+        boolean isPrime = true;
+
+        if (n < 2) {
             System.out.println("Neither prime nor composite!!!");
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) {
-                System.out.println("Composite");
-                return;
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    System.out.println("Composite");
+                    isPrime = false;
+                    break;
+                }
             }
         }
-        System.out.println("Prime");
+
+        if (isPrime) {
+            System.out.println("Prime");
+        }
+
+        System.out.println("Time complexity: O(sqrt(n))");
     }
 }

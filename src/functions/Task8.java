@@ -8,6 +8,7 @@ public class Task8 {
         System.out.println("Enter a string. Does it include only digits?");
         String s = sc.nextLine();
         System.out.println(checkDigits(s, 0) ? "Yes" : "No");
+        System.out.println("Time complexity: O(n)");
     }
 
     private static boolean checkDigits(String s, int i) {

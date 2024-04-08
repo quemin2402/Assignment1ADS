@@ -6,7 +6,8 @@ public class Task5 {
     public static void fibonacciSequence(Scanner sc) {
         System.out.println("Enter a number: ");
         int n = sc.nextInt();
-        System.out.println(n + " element of Fibonacci sequence is a" + calculationsFibonacci(n));
+        System.out.println(n + " element of Fibonacci sequence is " + calculationsFibonacci(n));
+        System.out.println("Time complexity: O(2^n)");
     }
 
     private static Integer calculationsFibonacci(int n) {

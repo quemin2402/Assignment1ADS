@@ -8,7 +8,8 @@ public class Task9 {
         int n = sc.nextInt();
         System.out.println("Enter a number for 'k' terms in binomial:");
         int k = sc.nextInt();
-        System.out.println("Binomial coefficient" + calculationsBinomial(n, k));
+        System.out.println("Binomial coefficient is " + calculationsBinomial(n, k));
+        System.out.println("Time complexity: O(2^n)");
     }
 
     private static Integer calculationsBinomial(int n, int k) {
