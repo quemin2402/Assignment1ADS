@@ -30,7 +30,7 @@ public class Task1 {
         }
         int[] array = new int[n];
         System.out.println("Enter the elements:");
-        int min = array[0]; // Starts with the first possible value - first element
+        int min = Integer.MAX_VALUE; // Starts with the first possible value - maximum
 
         // Reads each element from the user and finds the minimum
         for (int i = 0; i < n; i++) {
