@@ -2,21 +2,34 @@ import functions.*;
 import helpers.Task;
 
 import java.util.Scanner;
-
+/**
+ * The Main class that serves as the entry point to execute various mathematical tasks.
+ * It provides a 'console-based' interface for user interaction.
+ */
 public class Main {
+    // Scanner instance for reading input from the console
     public static Scanner sc = new Scanner(System.in);
-
+    /**
+     * Main method that provides a selection menu for various tasks.
+     * Each task is represented by a static method within the functions package.
+     * The user's choice is processed, and the corresponding task is executed.
+     *
+     * @param args Command-line arguments for the application
+     */
     public static void main(String[] args) {
+        // Continuously runs the application until the user chooses to exit
         while (true) {
             System.out.println("\nSelect an option (1-10) to execute a task, or any other key to exit:");
-            System.out.println("1. Find Minimum\n2. Calculate Average\n3. Check Prime\n4. Calculate Factorial\n" +
-                    "5. Fibonacci Sequence\n6. Power Calculation\n7. Reverse Array\n" +
-                    "8. Check Digits in String\n9. Calculate Binomial Coefficient\n10. Find GCD\n");
-
+            System.out.println("1. Find minimum\n2. Calculate average\n3. Check if a number is prime\n4. Calculate factorial\n" +
+                    "5. Fibonacci sequence element\n6. Power calculation\n7. Reverse array\n" +
+                    "8. Check digits in string\n9. Calculate binomial coefficient\n10. Find GCD of two numbers\n");
+            // Reads user's choice
             int choiceOfTheUser = sc.nextInt();
 
+            // Executes the chosen task
             Task taskToExecute;
             switch (choiceOfTheUser) {
+                // Maps each choice to a corresponding task and executes it
                 case 1 -> taskToExecute = Task1::findMinimum;
                 case 2 -> taskToExecute = Task2::calculateAverage;
                 case 3 -> taskToExecute = Task3::checkPrime;
@@ -36,9 +49,13 @@ public class Main {
         }
     }
 
+    /**
+     * Measures the execution time of a task and prints the result.
+     * @param task The task to be executed, represented by a Task functional interface.
+     */
     private static void measureAndExecuteTask(Task task) {
         long startTime = System.nanoTime();
-        task.execute(sc);
+        task.execute(sc); // Executes the task provided by the user's selection
         long endTime = System.nanoTime();
         double duration = (endTime - startTime) / 1e9;
         System.out.println("Task runtime: " + duration + " seconds");
